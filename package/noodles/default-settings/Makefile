@@ -1,18 +1,13 @@
+# SPDX-License-Identifier: GPL-2.0-only
 #
 # Copyright (C) 2021 Lean <coolsnowwolf@gmail.com>
-#
-# Copyright (C) 2021 ImmortalWrt
-# <https://immortalwrt.org>
-#
-# This is free software, licensed under the GNU General Public License v2.
-# See /LICENSE for more information.
-#
+# Copyright (C) 2021-2024 ImmortalWrt.org
 
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=default-settings
 PKG_VERSION:=1.1
-PKG_RELEASE:=1
+PKG_RELEASE:=2
 
 PKG_LICENSE:=GPL-3.0
 

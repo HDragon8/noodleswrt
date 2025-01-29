@@ -13,7 +13,7 @@ if ! uci -q get system.@imm_init[0].lang > "/dev/null"; then
 fi
 
 sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
-echo "DISTRIB_REVISION='R25.1.20'" >> /etc/openwrt_release
+echo "DISTRIB_REVISION='R25.2.10'" >> /etc/openwrt_release
 
 sed -i "/log-facility/d" "/etc/dnsmasq.conf"
 echo "log-facility=/dev/null" >> "/etc/dnsmasq.conf"

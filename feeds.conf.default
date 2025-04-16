@@ -1,5 +1,5 @@
-src-git packages https://git.openwrt.org/feed/packages.git^201fd099b80a2931b7326ce20b0cbb824296c99f
+src-git packages https://git.openwrt.org/feed/packages.git^d8cd30f4e281d6853b3de134c4f147a807583e43
 src-git luci https://github.com/HDragon8/luci1.git;main
-src-git routing https://git.openwrt.org/feed/routing.git^e87b55c6a642947ad7e24cd5054a637df63d5dbe
+src-git routing https://git.openwrt.org/feed/routing.git^c9b636698881059a3c981032770968f5a98ff201
 src-git telephony https://git.openwrt.org/feed/telephony.git^fd605af7143165a2490681ec1752f259873b9147
 src-git noodles8 https://github.com/HDragon8/noodles2.git;OP24

@@ -45,7 +45,7 @@ IMG_PREFIX_EXTRA:=$(if $(EXTRA_IMAGE_NAME),$(call sanitize,$(EXTRA_IMAGE_NAME))-
 IMG_PREFIX_VERNUM:=$(if $(CONFIG_VERSION_FILENAMES),$(call sanitize,$(VERSION_NUMBER))-)
 IMG_PREFIX_VERCODE:=$(if $(CONFIG_VERSION_CODE_FILENAMES),$(call sanitize,$(VERSION_CODE))-)
 
-IMG_PREFIX:=$(VERSION_DIST_SANITIZED)-$(shell date "+%Y.%m.%d")-OP24.10-$(IMG_PREFIX_VERNUM)$(IMG_PREFIX_VERCODE)$(IMG_PREFIX_EXTRA)$(BOARD)-$(SUBTARGET)
+IMG_PREFIX:=$(VERSION_DIST_SANITIZED)-$(shell date "+%Y.%m.%d")-$(IMG_PREFIX_VERNUM)$(IMG_PREFIX_VERCODE)$(IMG_PREFIX_EXTRA)$(BOARD)-$(SUBTARGET)
 IMG_ROOTFS:=$(IMG_PREFIX)-rootfs
 IMG_COMBINED:=$(IMG_PREFIX)-combined
 ifeq ($(DUMP),)
@@ -569,6 +569,15 @@ endef
 
 define Device/Check/Common
   _PROFILE_SET = $$(strip $$(foreach profile,$$(PROFILES) DEVICE_$(1),$$(call DEVICE_CHECK_PROFILE,$$(profile))))
+  # Check if device is disabled and if so do not mark to be installed when ImageBuilder is used
+  ifeq ($(IB),1)
+    ifeq ($$(DEFAULT),n)
+      _PROFILE_SET :=
+    endif
+    ifeq ($$(BROKEN),y)
+      _PROFILE_SET :=
+    endif
+  endif
   DEVICE_PACKAGES += $$(call extra_packages,$$(DEVICE_PACKAGES))
   ifdef TARGET_PER_DEVICE_ROOTFS
     $$(eval $$(call merge_packages,_PACKAGES,$$(DEVICE_PACKAGES) $$(call DEVICE_EXTRA_PACKAGES,$(1))))

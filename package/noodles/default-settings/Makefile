@@ -6,10 +6,9 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=default-settings
-PKG_VERSION:=1.1
-PKG_RELEASE:=2
+PKG_RELEASE:=29
 
-PKG_LICENSE:=GPL-3.0
+PKG_LICENSE:=GPL-2.0-only
 
 include $(INCLUDE_DIR)/package.mk
 
